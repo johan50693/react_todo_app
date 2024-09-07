@@ -23,7 +23,7 @@ function TodoList({
         {(!loading && !searchedTodos) && onEmptyTodos ()}
 
         {(!!totalTodos && !searchedTodos.length) && onEmptySearchResults(searchValue)}
-        {searchedTodos.map(renderType)}
+        {(!loading && !error) && searchedTodos.map(renderType)}
        
     </section>
   );
