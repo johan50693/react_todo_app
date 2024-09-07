@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-const withStorageListener = (WrappedComponent) => {
+const useStorageListener = (sincronize) => {
 
-    return function WrappedComponentWithStorageListener ({sincronize}) {
 
         const [storageChange, setStorageChange] = useState(false)
         
@@ -18,13 +17,12 @@ const withStorageListener = (WrappedComponent) => {
             setStorageChange(false);
         }
 
-        return (
-            <WrappedComponent 
-                show={storageChange} 
-                toggleShow={toggleShow}
-            />
-        )
-    } 
+        return {
+
+            show: storageChange, 
+            toggleShow: toggleShow,
+
+        }
 }
 
-export {withStorageListener};
+export {useStorageListener};
